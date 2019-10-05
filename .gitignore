@@ -168,3 +168,5 @@ src/ProductInformationManager/App_Data/
 src/UI\.PIM/node_modules/
 
 src/node_modules/
+/AirVinyl.API/App_Data/AirVinyl.DataAccessLayer.AirVinylDbContext_log.ldf
+/AirVinyl.API/App_Data/AirVinyl.DataAccessLayer.AirVinylDbContext.mdf

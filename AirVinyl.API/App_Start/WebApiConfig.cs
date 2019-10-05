@@ -20,8 +20,20 @@ namespace AirVinyl.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
-            config.MapODataServiceRoute("ODataRoute", "odata", GetEdmModel());
+            
+            // Enable all
+            //config
+            //    .Count()
+            //    .Filter()
+            //    .OrderBy()
+            //    .Expand()
+            //    .Select()
+            //    .MaxTop(null);
+            
+            config.MapODataServiceRoute(
+                routeName: "ODataRoute",
+                routePrefix: "odata",
+                model: GetEdmModel());
 
             config.EnsureInitialized();
 
@@ -34,6 +46,8 @@ namespace AirVinyl.API
             builder.ContainerName = "AirVinylContainer";
 
             builder.EntitySet<Person>("People");
+            // Or enable individual
+            builder.EntityType<Person>().Select();
             builder.EntitySet<VinylRecord>("VinylRecords");
 
             return builder.GetEdmModel();
