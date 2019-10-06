@@ -13,6 +13,8 @@ namespace AirVinyl.DataAccessLayer
         public AirVinylDbContext()
         {
             Database.SetInitializer(new AirVinylDBInitializer());
+
+            Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             // disable lazy loading
             Configuration.LazyLoadingEnabled = false;          
         }
